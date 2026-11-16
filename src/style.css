@@ -111,10 +111,10 @@ footer{align-items:center;margin-top:34px;padding:18px 0 8px;gap:14px}
 .signature strong{font-size:11px;font-weight:800;color:#293b83;letter-spacing:.1px}
 .signature small{font-size:9px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:#7b67c5}
 .footer-meta{font-size:9px;color:#8793ad}
-.login-copyright{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:27px;padding:16px 12px;border:1px solid #d9def8;border-radius:13px;background:linear-gradient(110deg,#f1f4ff,#faf5ff 65%,#fff9eb);color:#293b83;box-shadow:0 6px 20px #4338ca12}
+.login-copyright{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;flex-wrap:nowrap;text-align:center;margin-top:27px;padding:16px 12px;border:1px solid #d9def8;border-radius:13px;background:linear-gradient(110deg,#f1f4ff,#faf5ff 65%,#fff9eb);color:#293b83;box-shadow:0 6px 20px #4338ca12}
 .login-copyright .signature-mark{width:32px;height:32px;flex-basis:32px}
 .login-copyright strong{font-size:11px;font-weight:800;color:#293b83}
-.login-copyright small{width:100%;margin-top:-5px;margin-left:42px;text-align:left;color:#7b67c5;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.login-copyright small{width:auto;margin:0;text-align:center;color:#7b67c5;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
 @keyframes main-arrive{from{opacity:0}to{opacity:1}}
 @keyframes section-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes title-arrive{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
