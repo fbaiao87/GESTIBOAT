@@ -51,7 +51,7 @@ export default function Crew({ vessels=[], notify=()=>{}, lang='pt' }) {
     setModal(kind)
     const defaultVessel = vessel!=='all' ? vessel : vessels[0]?.id || ''
     const member = data.members.find(m=>m.vessel_id===(row?.vessel_id||defaultVessel))
-    setForm(row ? {...row} : {...blank[kind],vessel_id:defaultVessel,crew_member_id:member?.id||''})
+    setForm(row ? {...row} : {...blank[kind],vessel_id:defaultVessel,...(kind!=='members'?{crew_member_id:member?.id||''}:{})})
   }
   const set = (key,value) => setForm(f=>({...f,[key]:value}))
   async function save(e) {
@@ -59,7 +59,7 @@ export default function Crew({ vessels=[], notify=()=>{}, lang='pt' }) {
     setSaving(true)
     const table = modal==='members' ? 'crew_members' : modal==='assignments' ? 'crew_assignments' : 'crew_qualifications'
     const payload = {...form}
-    if (modal==='members') payload.full_name=payload.full_name.trim()
+    if (modal==='members') { delete payload.crew_member_id; payload.full_name=payload.full_name.trim() }
     for (const key of ['starts_at','ends_at','issued_at','expires_at']) if(payload[key]==='') payload[key]=null
     const result = editing ? await supabase.from(table).update(payload).eq('id',editing.id) : await supabase.from(table).insert(payload)
     if (result.error) notify(result.error.message,true)
